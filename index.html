@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huecraft — Find the colors in any image</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Huecraft home">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span>Huecraft</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#picker" class="active">Picker</a>
+      <a href="#palettes">Palettes</a>
+      <a href="#how-it-works">How it works</a>
+    </nav>
+    <button class="header-button" id="clearButton">New canvas <span>⌘ K</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="picker">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Image color intelligence</p>
+        <h1>Find the colors<br><em>that feel right.</em></h1>
+      </div>
+      <p class="hero-copy">Drop in an image, then use the pencil to pick any color. Build a considered palette from the details you love.</p>
+    </section>
+
+    <section class="workspace" aria-label="Color picker workspace">
+      <div class="workspace-toolbar">
+        <div class="toolbar-title"><span class="status-dot"></span> IMAGE WORKSPACE</div>
+        <div class="toolbar-actions">
+          <label class="upload-button" for="imageInput">↥ <span>Upload image</span>
+            <input id="imageInput" type="file" accept="image/*">
+          </label>
+          <button class="screen-picker-button" id="screenPicker" title="Pick a color from anywhere on your screen">⌾ <span>Pick from screen</span></button>
+          <button class="tool-button active" id="pencilButton" title="Pick colors from image">✎ <span>Pencil</span></button>
+          <button class="tool-button" id="zoomOut" aria-label="Zoom out">−</button>
+          <span class="zoom-label" id="zoomLabel">100%</span>
+          <button class="tool-button" id="zoomIn" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+      <div class="canvas-wrap" id="canvasWrap">
+        <div class="drop-state" id="dropState">
+          <div class="upload-orb"><span>↥</span></div>
+          <h2>Drop an image here</h2>
+          <p>or <label for="imageInput">browse your files</label></p>
+          <small>PNG, JPG or WEBP · up to 10 MB</small>
+        </div>
+        <canvas id="imageCanvas" aria-label="Image canvas. Click to sample a color."></canvas>
+        <div class="cursor-lens" id="cursorLens"><span id="lensColor"></span><b id="lensHex">#F5F1E8</b></div>
+      </div>
+      <div class="workspace-footer">
+        <span><kbd>Click</kbd> to sample · <button class="inline-action" id="screenPickerHint">⌾ Pick from Word or any app</button> · <kbd>⌘</kbd> <kbd>V</kbd> to paste</span>
+        <button id="resetZoom">Reset view</button>
+      </div>
+    </section>
+
+    <section class="results" id="palettes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR COLOR NOTES</p>
+          <h2>Collected colors <span id="colorCount">0</span></h2>
+        </div>
+        <button class="text-button" id="clearColors">Clear all <span>×</span></button>
+      </div>
+      <div class="color-notes" id="colorNotes">
+        <div class="empty-note">
+          <span>✦</span>
+          <p>Every color you pick will<br>appear here.</p>
+        </div>
+      </div>
+
+      <div class="generated-heading">
+        <div>
+          <p class="eyebrow">MADE FROM YOUR PICKS</p>
+          <h2>Special palettes</h2>
+        </div>
+        <span class="generated-status" id="generatedStatus">Pick a color to begin</span>
+      </div>
+      <div class="generated-palettes" id="generatedPalettes">
+        <div class="generated-empty">Your picked colors will inspire complementary, tonal and atmospheric palettes here.</div>
+      </div>
+
+      <div class="palette-heading">
+        <div>
+          <p class="eyebrow">AUTOMATICALLY EXTRACTED</p>
+          <h2>Image palette</h2>
+        </div>
+        <button class="outline-button" id="copyPalette">Copy palette <span>↗</span></button>
+      </div>
+      <div class="palette-card">
+        <div class="palette-strip" id="paletteStrip">
+          <div class="strip-color" style="background:#E8E2D6;flex:1"></div>
+          <div class="strip-color" style="background:#B2A38E;flex:1"></div>
+          <div class="strip-color" style="background:#6D7467;flex:1"></div>
+          <div class="strip-color" style="background:#263A3A;flex:1"></div>
+          <div class="strip-color" style="background:#D07152;flex:1"></div>
+        </div>
+        <div class="palette-values" id="paletteValues">
+          <button class="palette-value" data-color="#E8E2D6"><span class="mini-swatch" style="background:#E8E2D6"></span><code>#E8E2D6</code></button>
+          <button class="palette-value" data-color="#B2A38E"><span class="mini-swatch" style="background:#B2A38E"></span><code>#B2A38E</code></button>
+          <button class="palette-value" data-color="#6D7467"><span class="mini-swatch" style="background:#6D7467"></span><code>#6D7467</code></button>
+          <button class="palette-value" data-color="#263A3A"><span class="mini-swatch" style="background:#263A3A"></span><code>#263A3A</code></button>
+          <button class="palette-value" data-color="#D07152"><span class="mini-swatch" style="background:#D07152"></span><code>#D07152</code></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how-it-works">
+      <p class="eyebrow">A SIMPLE WAY TO SEE COLOR</p>
+      <div class="steps">
+        <div><span>01</span><h3>Bring your reference</h3><p>Upload an image that sparks something. A photo, a screenshot, or a texture.</p></div>
+        <div><span>02</span><h3>Pick the feeling</h3><p>Use the pencil to sample the exact pixels that make the image sing.</p></div>
+        <div><span>03</span><h3>Make it yours</h3><p>Copy your colors and take the mood with you into your next project.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer><span class="brand-mark small"><i></i><i></i><i></i></span><span>Made for people who notice the little things.</span><span>© 2026 Huecraft</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
