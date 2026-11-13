@@ -1,0 +1,19 @@
+{
+  "name": "huecraft",
+  "version": "1.0.0",
+  "description": "A fast image color picker and palette workspace.",
+  "main": "main.cjs",
+  "author": "Huecraft",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "start:widget": "electron . --widget",
+    "build:portable": "electron-builder --config electron-builder.portable.json",
+    "build:widget": "electron-builder --config electron-builder.widget.json",
+    "build": "npm run build:portable && npm run build:widget"
+  },
+  "devDependencies": {
+    "electron": "41.7.1",
+    "electron-builder": "^26.0.12"
+  }
+}

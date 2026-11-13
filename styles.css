@@ -5,3 +5,13 @@
 @media(max-width:700px){.topbar{padding:0 18px;gap:20px}.nav-links{display:none}.hero{display:block;padding:55px 20px 38px}.hero-copy{margin:25px 0 0}.workspace,.results,.how{padding:0 15px}.toolbar-title{font-size:8px}.upload-button span,.tool-button span{display:none}.canvas-wrap{height:340px}.color-notes{grid-template-columns:repeat(2,1fr)}.empty-note{grid-column:span 2}.generated-palettes{grid-template-columns:1fr}.generated-heading{align-items:flex-start;gap:12px;flex-direction:column}.generated-status{padding:0}.palette-strip{height:100px}.palette-values{grid-template-columns:repeat(5,1fr)}.palette-value{padding:12px 7px;justify-content:center}.palette-value code{font-size:9px}.mini-swatch{display:none}.steps{gap:20px}.steps p{font-size:11px}footer{margin:0 15px;padding-left:0;padding-right:0;flex-wrap:wrap}footer span:last-child{margin-left:0;width:100%}}
 .screen-picker-button{height:31px;border:1px solid #e8a16c;background:#f17d52;color:#fff4ec;border-radius:3px;padding:0 11px;font-size:11px;display:flex;align-items:center;gap:7px}.screen-picker-button:hover{background:#ff9367}.screen-picker-button.picked{background:#d8f36c;border-color:#d8f36c;color:#203b3a}.inline-action{font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:3px}.inline-action:hover{color:var(--orange)}.canvas-wrap.dragging{outline:3px solid var(--orange);outline-offset:-3px}
 @media(max-width:700px){.screen-picker-button span{display:none}.screen-picker-button{padding:0 10px}}
+body.widget-mode .hero,body.widget-mode .how,body.widget-mode footer,body.widget-mode .nav-links{display:none}
+body.widget-mode .topbar{padding:16px 20px}
+body.widget-mode .header-button{display:none}
+body.widget-mode main{padding:0 16px 24px}
+body.widget-mode .workspace{margin-top:8px}
+body.widget-mode .workspace-toolbar{align-items:flex-start;flex-direction:column;gap:14px}
+body.widget-mode .toolbar-actions{flex-wrap:wrap}
+body.widget-mode .canvas-wrap{min-height:220px}
+body.widget-mode .results{padding-top:34px}
+body.widget-mode .generated-heading,body.widget-mode .generated-palettes,body.widget-mode .palette-heading,body.widget-mode .palette-card{display:none}

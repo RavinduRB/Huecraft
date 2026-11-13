@@ -1,3 +1,7 @@
+if (new URLSearchParams(window.location.search).get('widget') === '1') {
+  document.body.classList.add('widget-mode');
+}
+
 const canvas = document.getElementById('imageCanvas');
 const ctx = canvas.getContext('2d', { willReadFrequently: true });
 const canvasWrap = document.getElementById('canvasWrap');

@@ -1,0 +1,24 @@
+{
+  "appId": "com.huecraft.widget",
+  "productName": "Huecraft Widget",
+  "asar": true,
+  "directories": {
+    "output": "artifacts/widget-new"
+  },
+  "files": [
+    "main.cjs",
+    "index.html",
+    "app.js",
+    "styles.css",
+    "package.json"
+  ],
+  "win": {
+    "signAndEditExecutable": false,
+    "target": [
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ]
+  }
+}
