@@ -2,6 +2,8 @@
 
 Huecraft is a desktop color-picking workspace for turning images and on-screen references into useful color palettes. Load an image, sample colors, and collect or generate palettes for your next creative project.
 
+<img width="2069" height="1164" alt="Huecraft" src="https://github.com/user-attachments/assets/14e10729-1e0b-413b-b4a3-9c4d5c6fee91" />
+
 ## Key features
 
 - Upload, drag and drop, or paste an image into the workspace.
